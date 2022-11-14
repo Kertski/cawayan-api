@@ -119,6 +119,23 @@ router.put("/:id", (req, res)=>{
 
 router.get("/count/all", (req, res) => {
   res.status(200).send({total:products.length});
+  
 });
 
+router.get("/Description/:keyword", (req, res) => {
+  const { keyword } = req.params;
+  const result = products.filter(item=>item.Description.toLowerCase().includes(keyword));
+
+  if (result.length > 0) {
+   res.status(200).send(result );
+  }else{
+   res.status(200).send(keyword + " not found!");
+  }
+});
+
+
+
+
+
 module.exports = router;
+

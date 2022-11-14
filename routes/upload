@@ -1,0 +1,31 @@
+var express = require("express");
+const cors = require('cors')
+const multer = require('multer')
+var router = express.Router()
+
+
+const app = express()
+
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images/upload/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  },
+})
+
+const upload = multer({ storage: storage })
+
+app.use(cors())
+
+app.post('/image', upload.single('file'), function (req, res) {
+  res.json({})
+})
+
+
+
+
+module.exports = router;
