@@ -5,12 +5,38 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
+
+
+const multer = require('multer')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'http://localhost:8000/images/home/best-seller/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  },
+})
+
+const upload = multer({ storage: storage })
+
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var producstRouter = require('./routes/products');
 
+
 var app = express();
 app.use(cors());
+app.post('/image', upload.single('file'), function (req, res) {
+  res.json({})
+})
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', producstRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
