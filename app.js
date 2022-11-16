@@ -27,6 +27,8 @@ const upload = multer({ storage: storage })
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var producstRouter = require('./routes/products');
+var ordersRouter = require('./routes/orders');
+var customersRouter = require('./routes/customers');
 
 
 var app = express();
@@ -52,6 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', producstRouter);
+app.use('/orders', ordersRouter);
+app.use('/customers', customersRouter);
 
 
 // catch 404 and forward to error handler
