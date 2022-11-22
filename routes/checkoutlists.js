@@ -2,15 +2,13 @@ var express = require("express");
 
 var router = express.Router()
 
-
-let orders = [
-    {id : 1 , Description : "Rattan Egg Basket" , Price : 349 , Image :  'http://localhost:8000/images/home/newarrivals/EggBasket.png', Promos : 0, Sold : 0, Amount: 1}
-
+let checkoutlists = [
+    {id : 1 , Price : 0 , Shipping : 0 , Discount : 0 , Total : 0}
 ]
 // Create a get function with the given JSON Array.
 
 router.get("/",(req, res ) => {
-    res.send(orders);
+    res.send(checkoutlists);
 }
 );
 
@@ -18,10 +16,10 @@ router.get("/",(req, res ) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  let order= orders.find((item) => {
+  let checkout= checkoutlists.find((item) => {
       return item.id === Number(id);
   });
-  res.status(200).send(order ? order : {status: "Record not found!"});
+  res.status(200).send(checkout ? checkout : {status: "Record not found!"});
 });
 
 
@@ -29,27 +27,25 @@ router.get("/:id", (req, res) => {
 router.post('/add', (req, res) => {
     let newEntry = {
         id: req.body.id,
-        Description: req.body.Description,
         Price: req.body.Price,
-        Stock: req.body.Stock,
-        Sold: req.body.Sold,
-        Amount: req.body.Amount,
+        Shipping: req.body.Shipping,
+        Discount: req.body.Discount,
+        Total: req.body.Total,
     }
-    orders.push(newEntry);
+    checkoutlists.push(newEntry);
     res.status(200).send( newEntry );
 });
 
 router.post("/:id", (req, res) =>{
-  let lastItem = orders[orders.length - 1];
+  let lastItem = checkoutlists[checkoutlists.length - 1];
   let data = {
     id: lastItem.id + 1,
-    Description: req.body.Description,
     Price: req.body.Price,
-    Stock: req.body.Stock,
-    Image: req.body.Image,
-    Amount: req.body.Amount,
+    Shipping: req.body.Shipping,
+    Discount: req.body.Discount,
+    Total: req.body.Total,
   };
-  orders.push(data);
+  checkoutlists.push(data);
   res.status(200).send( data );
 });
 
@@ -64,15 +60,15 @@ router.post("/:id", (req, res) =>{
 router.put("/:id", (req, res)=>{
   const { id } = req.params;
 
-  let prod = orders.find((item) => {
+  let prod = checkoutlists.find((item) => {
       return item.id === Number(id);
   });
 
   prod.id = req.body.id;
-  prod.Description = req.body.Description;
-  prod.Price = req.body.Price;
-  prod.Category = req.body.Category;
-  prod.Image = req.body.Image;
+  prod.Price = req.body.Description;
+  prod.Shipping = req.body.Price;
+  prod.Discount = req.body.Category;
+  prod.Total = req.body.Image;
 
   res.status(200).send( prod );
 
