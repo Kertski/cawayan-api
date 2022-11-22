@@ -4,13 +4,7 @@ var router = express.Router()
 
 
 let orders = [
-<<<<<<< HEAD
     {id : 1 , Description : "Rattan Egg Basket" , Price : 349 , Image :  'http://localhost:8000/images/home/newarrivals/EggBasket.png', Promos : 0, Sold : 0, Amount: 1}
-=======
-    {id : 1 , Description : "Rattan Egg Basket" , Price : 349, Sold : 0, Amount: 12 , Status: "delivered", Sales: "delivered"} ,
-
-];
->>>>>>> 8a5cce8715c945e50d94f93caf8c644c69ef903e
 
 ]
 // Create a get function with the given JSON Array.
@@ -20,7 +14,6 @@ router.get("/",(req, res ) => {
 }
 );
 
-<<<<<<< HEAD
 //2. Create a get function using id
 
 router.get("/:id", (req, res) => {
@@ -30,8 +23,6 @@ router.get("/:id", (req, res) => {
   });
   res.status(200).send(order ? order : {status: "Record not found!"});
 });
-=======
->>>>>>> 8a5cce8715c945e50d94f93caf8c644c69ef903e
 
 
 // Add new entry
@@ -50,7 +41,6 @@ router.post('/add', (req, res) => {
     res.status(200).send( newEntry );
 });
 
-<<<<<<< HEAD
 router.post("/:id", (req, res) =>{
   let lastItem = orders[orders.length - 1];
   let data = {
@@ -108,8 +98,6 @@ router.get("/Description/:keyword", (req, res) => {
 
 
 
-=======
->>>>>>> 8a5cce8715c945e50d94f93caf8c644c69ef903e
 
 
 module.exports = router;
