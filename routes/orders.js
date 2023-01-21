@@ -4,7 +4,7 @@ var router = express.Router()
 
 
 let orders = [
-    {id : 1 , Description : "Rattan Egg Basket" , Price : 349 , Image :  'http://localhost:8000/images/home/newarrivals/EggBasket.png', Promos : 0, Sold : 0, Amount: 1}
+    {id : 1 , Description : "Rattan Egg Basket" , Price : 349 , Image :  'https://cawayan.onrender.com/images/home/newarrivals/EggBasket.png', Promos : 0, Sold : 0, Amount: 1}
 
 ]
 // Create a get function with the given JSON Array.
