@@ -13,6 +13,21 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "multer": "^1.4.5-lts.1"
-  }
+    "multer": "^1.4.5-lts.1",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^3.1.1"
+  },
+  "description": "��#\u0000 \u0000c\u0000a\u0000w\u0000a\u0000y\u0000a\u0000n\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000#\u0000 \u0000c\u0000a\u0000w\u0000a\u0000y\u0000a\u0000n\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kertski/cawayan-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kertski/cawayan-api/issues"
+  },
+  "homepage": "https://github.com/Kertski/cawayan-api#readme"
 }
